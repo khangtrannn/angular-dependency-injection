@@ -1,27 +1,18 @@
-# AngularDependencyInjection
+Reference https://blog.angular-university.io/angular-dependency-injection/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.1.
+## Resolution modifiers
+Resolution modifiers Resolution modifiers it's some special annotations which allow you to slightly change the logic of how Angular resolves dependency in the injectors tree
 
-## Development server
+#### @Self() 
+Self tries to resolve dependency only only in its ow injector and it will not be asking the parent and go up through the injector tree until it finds the provider. It checks only its own injector and if it cannot resolve it there, it will throw the error. In order to fix it we have to provide dependency in component which declares this dependency.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+We also can use @Self() for AppModule All eagerly imported modules share their root module injector and our @Self() annotation will point out to exactly root injector
 
-## Code scaffolding
+#### @SkipSelf() 
+@SkipSelf() does just opposite thing to @Self(), it just skips injector where it was declared and results dependencies starting from its parent.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### @Host() 
+@Host() resolution modifier tells Angular that the host element should be the last stop when it is searching for providers 
+Example: parent.directive.ts & child.directive.ts
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Every Angular component has its own Host-Element and it is represented by component's selector
