@@ -3,6 +3,14 @@ import { APP_CONFIG } from '../config.token';
 import { ExperimentalLoggerService } from '../experimental-logger.service';
 import { LoggerService } from '../logger.service';
 
+export function loggerFactory(
+  injector: Injector
+): ExperimentalLoggerService | LoggerService {
+  return injector.get(APP_CONFIG).experimentalEnabled
+    ? injector.get(ExperimentalLoggerService)
+    : injector.get(LoggerService);
+}
+
 @Component({
   selector: 'app-use-factory',
   template: ` <h3>Use Factory</h3> `,
@@ -24,11 +32,7 @@ import { LoggerService } from '../logger.service';
       // deps: [APP_CONFIG],
 
       // use injector this way will help in case we have multiple dependencies
-      useFactory: (injector: Injector) => {
-        return injector.get(APP_CONFIG).experimentalEnabled
-          ? injector.get(ExperimentalLoggerService)
-          : injector.get(LoggerService);
-      },
+      useFactory: loggerFactory,
       deps: [Injector],
     },
   ],
