@@ -1,24 +1,24 @@
 import { NgModule, Self } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DependencyProvidersModule } from './dependency-providers/dependency-providers.module';
-import { HostResolutionModifierModule } from './host-resolution-modifier/host-resolution-modifier.module';
 import { LoggerService } from './logger.service';
+import { ResolutionModifiersModule } from './resolution-modifiers/resolution-modifiers.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HostResolutionModifierModule,
+    CommonModule,
+    ResolutionModifiersModule,
     DependencyProvidersModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(@Self() private logger: LoggerService) {

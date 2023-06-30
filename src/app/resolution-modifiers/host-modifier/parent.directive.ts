@@ -1,5 +1,5 @@
-import { Directive, Optional, Self } from "@angular/core";
-import { LoggerService } from "../logger.service";
+import { Directive, Optional, Self } from '@angular/core';
+import { LoggerService } from '../../logger.service';
 
 @Directive({
   selector: '[appParent]',

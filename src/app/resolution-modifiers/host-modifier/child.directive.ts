@@ -1,24 +1,24 @@
-import { Directive, Host } from "@angular/core";
-import { LoggerService } from "../logger.service";
+import { Directive, Host } from '@angular/core';
+import { LoggerService } from 'src/app/logger.service';
 
 /**
  * <div appParent>
  *  <div appChild></div>
  * </div>
- * 
+ *
  * Resolve dependency flow
  * - Default behavior:
  * appChild ---> appParent ---> ModuleInjector
- * 
+ *
  * - @Host() behavior
- * Because appParent is host component of appChild, so the resolution of appChild injector scope 
+ * Because appParent is host component of appChild, so the resolution of appChild injector scope
  * is restricted to appParent. In other words, if appParent doesn't provide a dependency that
  * appChild request, we will end up with 'No provider' error
- * appChild ---> appParent xxx STOP xxx ModuleInjector
+ * appChild ---> appParent -x- STOP -x- ModuleInjector
  */
 
 @Directive({
-  selector: '[appChild]'
+  selector: '[appChild]',
 })
 export class ChildDirective {
   constructor(@Host() private logger: LoggerService) {
