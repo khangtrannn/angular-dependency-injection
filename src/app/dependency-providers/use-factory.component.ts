@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { APP_CONFIG, AppConfig } from '../config.token';
+import { Component, Injector } from '@angular/core';
+import { APP_CONFIG } from '../config.token';
 import { ExperimentalLoggerService } from '../experimental-logger.service';
 import { LoggerService } from '../logger.service';
 
@@ -16,12 +16,20 @@ import { LoggerService } from '../logger.service';
        * as a value for the token.
        * So we can say that use value has a static nature when use factory has dynamic one
        */
-      useFactory: (config: AppConfig) => {
-        return config.experimentalEnabled
-          ? new ExperimentalLoggerService()
-          : new LoggerService();
+      // useFactory: (config: AppConfig) => {
+      //   return config.experimentalEnabled
+      //     ? new ExperimentalLoggerService()
+      //     : new LoggerService();
+      // },
+      // deps: [APP_CONFIG],
+
+      // use injector this way will help in case we have multiple dependencies
+      useFactory: (injector: Injector) => {
+        return injector.get(APP_CONFIG).experimentalEnabled
+          ? injector.get(ExperimentalLoggerService)
+          : injector.get(LoggerService);
       },
-      deps: [APP_CONFIG],
+      deps: [Injector],
     },
   ],
 })
