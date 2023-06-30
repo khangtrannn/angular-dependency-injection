@@ -1,14 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DependencyProvidersComponent } from './dependency-providers.component';
+import { NgModule } from '@angular/core';
+import { UseClassComponent } from './use-class.component';
 
 @NgModule({
-  declarations: [
-    DependencyProvidersComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [DependencyProvidersComponent]
+  declarations: [UseClassComponent],
+  imports: [CommonModule],
+  exports: [UseClassComponent],
 })
-export class DependencyProvidersModule { }
+export class DependencyProvidersModule {}
