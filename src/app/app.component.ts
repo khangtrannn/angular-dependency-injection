@@ -15,7 +15,7 @@ export class AppComponent {
     @SkipSelf() private parentLogger: LoggerService,
   ) {
     this.logger.prefix = 'App Component';
-    this.logger.log('constructor init');
+    this.logger.log('AppComponent init...');
 
     this.parentLogger.log('constructor init');
   }

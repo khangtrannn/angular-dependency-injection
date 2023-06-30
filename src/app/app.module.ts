@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DependencyProvidersModule } from './dependency-providers/dependency-providers.module';
 import { HostResolutionModifierModule } from './host-resolution-modifier/host-resolution-modifier.module';
 import { LoggerService } from './logger.service';
 
@@ -14,6 +15,7 @@ import { LoggerService } from './logger.service';
     BrowserModule,
     AppRoutingModule,
     HostResolutionModifierModule,
+    DependencyProvidersModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
