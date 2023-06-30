@@ -5,7 +5,7 @@ import { LoggerService } from '../logger.service';
 @Component({
   selector: 'app-use-class',
   template: `
-    <h3>Dependency providers</h3>
+    <h3>Use Class</h3>
     - provide: LoggerService, useClass: ExperimentalLoggerService
   `,
   styleUrls: [],

@@ -5,7 +5,9 @@ import { Logger } from './logger';
   providedIn: 'root',
   // --- Everywhere in the application will be used implementation of this new service if we
   // don't override it somewhere in child injector ---
-  // useClass: ExperimentalLoggerService
+  // --- Enable tree-shakable services ---
+  // useClass: ExperimentalLoggerService,
+  // useExisting: ExperimentalLoggerService,
 })
 export class LoggerService implements Logger {
   prefix = 'root';
