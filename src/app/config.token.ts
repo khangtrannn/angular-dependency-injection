@@ -2,6 +2,7 @@ import { InjectionToken } from '@angular/core';
 
 export interface AppConfig {
   globalValue: string;
+  experimentalEnabled: boolean;
 }
 
 /**
@@ -22,5 +23,6 @@ export const APP_CONFIG = new InjectionToken<AppConfig>('app.config', {
   providedIn: 'root',
   factory: () => ({
     globalValue: 'some global value',
+    experimentalEnabled: true,
   }),
 });

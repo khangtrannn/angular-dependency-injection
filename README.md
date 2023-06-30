@@ -16,3 +16,8 @@ We also can use @Self() for AppModule All eagerly imported modules share their r
 Example: parent.directive.ts & child.directive.ts
 
 Every Angular component has its own Host-Element and it is represented by component's selector
+
+
+## Dependency Providers
+#### What are difference between useValue and useFactory?
+Reference app-use-factory comment
