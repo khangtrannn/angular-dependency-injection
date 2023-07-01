@@ -39,8 +39,6 @@ export function loggerFactory(
 })
 export class UseFactoryComponent {
   constructor(private logger: LoggerService) {
-    console.log('What is logger', logger);
-
     this.logger.prefix = 'Use Factory Component';
     this.logger.log('UseFactoryComponent init...');
   }

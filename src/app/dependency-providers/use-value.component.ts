@@ -13,7 +13,6 @@ import { LegacyLogger } from './logger.legacy';
 })
 export class UseValueComponent {
   constructor(private logger: LoggerService) {
-    this.logger.prefix = 'Use Value Component';
     this.logger.log('UseValueComponent init...');
   }
 }

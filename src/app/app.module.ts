@@ -17,7 +17,6 @@ import { ResolutionModifiersModule } from './resolution-modifiers/resolution-mod
     ResolutionModifiersModule,
     DependencyProvidersModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {

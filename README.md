@@ -21,3 +21,12 @@ Every Angular component has its own Host-Element and it is represented by compon
 ## Dependency Providers
 #### What are difference between useValue and useFactory?
 Reference app-use-factory comment
+
+#### Multiple providers multi: true
+Have you ever wondered what will happen if in 'providers' we provide one more different service for the same token?
+Refer to multi-providers.component.ts
+
+If we simply configure multiple different services for the same token, the answer is the last one will be applied. Otherwise, if multi: true, the array of providers will be returned.
+
+How can we use multi providers in the real case?
+Refer to multi-providers-show-use
