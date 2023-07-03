@@ -30,3 +30,6 @@ If we simply configure multiple different services for the same token, the answe
 
 How can we use multi providers in the real case?
 Refer to multi-providers-show-use
+
+## Few words about Typescript
+Interfaces are syntactic sugar in Typescript that are thrown away during compilation.
