@@ -33,3 +33,13 @@ Refer to multi-providers-show-use
 
 ## Few words about Typescript
 Interfaces are syntactic sugar in Typescript that are thrown away during compilation.
+
+## Few words about providedIn: root
+- The service will be available application wide as a singleton with no need to add it to a module's providers array
+- If the service is only used within a lazy loaded module it will be lazy loaded with that module
+- If it is never used it will not be contained in the build (tree shaked).
+- providedIn: 'root' specifies that the service should be provided in the root injector
+- providedIn: 'root' is essentially the same as just adding the service at the app.module level in the providers array. However, it was easy to forget to add this entry and an unnecessary extra step.
+Reference:
+https://angular.io/guide/providers
+https://angular.io/guide/singleton-services
