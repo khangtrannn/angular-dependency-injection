@@ -64,6 +64,8 @@ someMethod {
 
 ERROR Error: NG0203: inject() must be called from an injection conext such as as a constructor, a factory, a filed initializer...
 
+## ForRoot & ForChild
+
 ## Few words about providedIn: root
 - The service will be available application wide as a singleton with no need to add it to a module's providers array
 - If the service is only used within a lazy loaded module it will be lazy loaded with that module
