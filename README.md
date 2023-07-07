@@ -35,6 +35,7 @@ Refer to multi-providers-show-use
 Interfaces are syntactic sugar in Typescript that are thrown away during compilation.
 
 ## Inject function
+Solving inheritance case
 @Directive()
 export abstract class WidgetBase {
   protected dataProvider = inject(WidgetDataService);
@@ -46,6 +47,22 @@ export class InteractiveWidgetComponent extends WidgetBase {
     super();
   }
 }
+
+Note: we cannot use inject function the following ways
+// will work - executed during constructor phrase
+userService = inject(UserService);
+
+ngOnInit() {
+  // won't work - executed later
+  inject(TestService).someValue;
+}
+
+someMethod {
+  // won't work - executed later
+  inject(TestService).someValue;
+}
+
+ERROR Error: NG0203: inject() must be called from an injection conext such as as a constructor, a factory, a filed initializer...
 
 ## Few words about providedIn: root
 - The service will be available application wide as a singleton with no need to add it to a module's providers array
