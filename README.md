@@ -34,6 +34,19 @@ Refer to multi-providers-show-use
 ## Few words about Typescript
 Interfaces are syntactic sugar in Typescript that are thrown away during compilation.
 
+## Inject function
+@Directive()
+export abstract class WidgetBase {
+  protected dataProvider = inject(WidgetDataService);
+  protected settings = inject(WidgetSettingsService);
+}
+
+export class InteractiveWidgetComponent extends WidgetBase {
+  constructor(private actions: WidgetActionsService) {
+    super();
+  }
+}
+
 ## Few words about providedIn: root
 - The service will be available application wide as a singleton with no need to add it to a module's providers array
 - If the service is only used within a lazy loaded module it will be lazy loaded with that module
