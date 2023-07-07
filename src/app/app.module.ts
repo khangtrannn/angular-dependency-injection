@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { DependencyProvidersModule } from './dependency-providers/dependency-providers.module';
 import { LoggerService } from './logger.service';
 import { ResolutionModifiersModule } from './resolution-modifiers/resolution-modifiers.module';
+import { GalleryComponent } from './gallery/gallery.component';
+import { GallerySlideComponent } from './gallery/gallery-slide.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +18,8 @@ import { ResolutionModifiersModule } from './resolution-modifiers/resolution-mod
     CommonModule,
     ResolutionModifiersModule,
     DependencyProvidersModule,
+    GalleryComponent,
+    GallerySlideComponent,
   ],
   bootstrap: [AppComponent],
 })
