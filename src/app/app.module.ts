@@ -9,6 +9,7 @@ import { LoggerService } from './logger.service';
 import { ResolutionModifiersModule } from './resolution-modifiers/resolution-modifiers.module';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GallerySlideComponent } from './gallery/gallery-slide.component';
+import { PollingModule } from 'polling';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { GallerySlideComponent } from './gallery/gallery-slide.component';
     DependencyProvidersModule,
     GalleryComponent,
     GallerySlideComponent,
+    PollingModule.forRoot(),
   ],
   bootstrap: [AppComponent],
 })

@@ -65,6 +65,7 @@ someMethod {
 ERROR Error: NG0203: inject() must be called from an injection conext such as as a constructor, a factory, a filed initializer...
 
 ## ForRoot & ForChild
+Fix the issue singleton for provider before Angular 6 (@Injectable({ providedIn: 'root' }))
 
 ## Few words about providedIn: root
 - The service will be available application wide as a singleton with no need to add it to a module's providers array

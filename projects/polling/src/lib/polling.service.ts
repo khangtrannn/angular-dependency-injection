@@ -7,10 +7,8 @@ export interface PollingConfig {
 
 export const INTERVAL = new InjectionToken<number>('interval');
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PollingService {
-  public pollings$ = timer(0, 1000).pipe(shareReplay());
+  public pollings$ = timer(0, this.internal || 1000).pipe(shareReplay());
   constructor(@Optional() @Inject(INTERVAL) private internal: number) {}
 }
